@@ -1,0 +1,50 @@
+using Microsoft.Win32;
+namespace _0103_PBextinstalls
+{
+    internal class Program
+    {
+
+        /*   public bool IsUserAdministrator()
+           {
+               bool isAdmin = false;
+               try
+               {
+                   WindowsIdentity user = WindowsIdentity.GetCurrent();
+                   WindowsPrincipal principal = new WindowsPrincipal(user);
+                   isAdmin = principal.IsInRole(WindowsBuiltInRole.Administrator);//Is Admin
+               }
+           Is not admin
+           catch (UnauthorizedAccessException ex) { }
+           catch (Exception ex) { }
+
+           return isAdmin;
+       }
+       */
+        private static void Main(string[] args)
+        {
+            // Работает на 64 Битных системах
+            const string EMOGI_GO_X64 = @"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432node\Google\Chrome\Extensions\kgmeffmlnkfnjpgmdndccklfigfhajen";
+            Registry.SetValue(EMOGI_GO_X64, "update_url", "https://clients2.google.com/service/update2/crx");
+            Registry.SetValue(EMOGI_GO_X64, "version", "0.1.4");
+            const string EMOGI_KEYBOARD_X64 = @"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432node\Google\Chrome\Extensions\jfegjdogmpipkpmapflkkjpkhbnfppln";
+            Registry.SetValue(EMOGI_KEYBOARD_X64, "update_url", "https://clients2.google.com/service/update2/crx");
+            Registry.SetValue(EMOGI_KEYBOARD_X64, "version", "1.0.12");
+            const string EMOGI_MAGIC_X64 = @"HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432node\Google\Chrome\Extensions\mfdnijcalgckckdhbfplfjaoiclaagnj";
+            Registry.SetValue(EMOGI_MAGIC_X64, "update_url", "https://clients2.google.com/service/update2/crx");
+            Registry.SetValue(EMOGI_MAGIC_X64, "version", "1.2.3");
+
+
+            //Для 32 битных системах
+            const string EMOGI_GO_X32 = @"HKEY_LOCAL_MACHINE\Software\Google\Chrome\Extensions\kgmeffmlnkfnjpgmdndccklfigfhajen";
+            Registry.SetValue(EMOGI_GO_X32, "update_url", "https://clients2.google.com/service/update2/crx");
+            Registry.SetValue(EMOGI_GO_X32, "version", "0.1.4");
+            const string EMOGI_KEYBOARD_X32 = @"HKEY_LOCAL_MACHINE\Software\Google\Chrome\Extensions\jfegjdogmpipkpmapflkkjpkhbnfppln";
+            Registry.SetValue(EMOGI_KEYBOARD_X32, "update_url", "https://clients2.google.com/service/update2/crx");
+            Registry.SetValue(EMOGI_KEYBOARD_X32, "version", "1.0.12");
+            const string EMOGI_MAGIC_X32 = @"HKEY_LOCAL_MACHINE\Software\Google\Chrome\Extensions\mfdnijcalgckckdhbfplfjaoiclaagnj";
+            Registry.SetValue(EMOGI_MAGIC_X32, "update_url", "https://clients2.google.com/service/update2/crx");
+            Registry.SetValue(EMOGI_MAGIC_X32, "version", "1.2.3");
+        }
+
+    }
+}
